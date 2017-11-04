@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html ng-app="ShopingCart" ng-controller="shopingCtrl">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <title>Shoping Cart App</title>
+  <!-- Bootstrap -->
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+  <link href="stylesheets/bootstrap.min.css" rel="stylesheet">
+  <script src="javascripts/angular.min.js"></script>
+  <script src="javascripts/main.js"></script>
+</head>
+<body style="min-height: 450px;">
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="/products">Shoping Cart</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container" >
+    <div class="col-md-8" style="overflow-y: scroll; height: 700px;">
+      <h2>Products</h2>
+      <div class="panel-group" ng-repeat="pro in products">
+        <div class="panel panel-default">
+          <div class="panel-heading">{{pro.product_name}}  <h3 class="pull-right" style="margin:0px; position: relative;bottom: 6px;"> <span class="label label-default">${{pro.price}}</span></h3> </div>
+          <div class="panel-body">
+            <div class="col-md-5">
+              <img class="img-thumbnail" src="{{pro.image}}"/>
+              <span class="label label-primary pull-right">{{pro.sku}}</span>
+            </div>
+            <div class="col-md-7">
+              {{pro.description}}
+            </div>
+            <div class="clearfix">
+
+            </div>
+            <div class="pull-right">
+              <button type="button" ng-click="addToCart(pro.product_name,pro.price)" class="btn btn-primary">Add to Cart</button>
+              <button ng-click="viewProduct(pro.sku)" data-toggle="modal" data-target="#myModal" type="button" class="btn btn-default">View Product</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <h2>Your Cart</h2>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Items <br/>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="item in items track by $index">
+            <td><i class="fa fa-circle" aria-hidden="true"></i> {{item}}</td>
+          </tr>
+          <tr>
+            <td>
+              <a href="#" ng-click="clearCart()"> <i class="fa fa-trash-o" aria-hidden="true"></i> clear</a>
+              <span class="pull-right"><b> Total: ${{total | number:2}} </b></span> <br/> <br/>
+              <button ng-disabled="mydisabled" class="btn btn-default pull-right" data-toggle="modal" data-target="#chekoutModel" type="button"> <i class="fa fa-shopping-cart fa-1x" aria-hidden="true"></i> Checkout</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <br/>
+
+</body>
+<script src="javascripts/jquery-3.1.0.js"></script>
+<script src="javascripts/bootstrap.min.js"></script>
+
+
+<!-- products Modal -->
+<div class="modal fade" id="myModal" role="dialog">
+  <div class="modal-dialog">
+    <!-- products Modal content-->
+    <div class="modal-content" ng-repeat="pro in products | filter:{'sku':  pid}:true" >
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">{{pro.product_name}} </h4>
+      </div>
+      <div class="modal-body">
+        <div>
+          <div class="col-md-6">
+            <img class="img-responsive" src="{{pro.image}}"/>
+            <h1>
+              <span class="label label-default">${{pro.price}}</span>
+            </h1>
+          </div>
+          <div class="col-md-6">
+            {{pro.description}}
+          </div>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Checkout Modal -->
+<div class="modal fade" id="chekoutModel" role="dialog">
+  <div class="modal-dialog">
+    <!-- Checkout Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Place Order </h4>
+      </div>
+      <form ng-submit="placeOrder()">
+        <div class="modal-body">
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>Items <br/>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="item in items track by $index">
+                <td><i class="fa fa-circle" aria-hidden="true"></i> {{item}}</td>
+              </tr>
+              <tr>
+                <td>
+                  <span class="pull-right"><b> Total: ${{total | number:2}} </b></span> <br/> <br/>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <h4> Customer Details</h4>
+          <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" ng-model="name" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label for="name">Email:</label>
+            <input type="email" ng-model="email"  class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label for="name">Phone:</label>
+            <input type="text" ng-model="phone"  class="form-control" required>
+          </div>
+
+          <div class="form-group">
+            <label for="name">Shipping address:</label>
+            <textarea ng-model="address" class="form-control" rows="8" cols="8" required></textarea>
+          </div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-default">Confirm Order</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+</html>

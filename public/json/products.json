@@ -1,0 +1,40 @@
+{
+    "products": [
+        {
+            "sku": "00001",
+            "product_name": "Better Homes and Gardens Pintuck Bedding Comforter Mini Set",
+            "description": "Change your bedroom decor with the contemporary design of the Better Homes and Gardens Pintuck Bedding Comforter Mini Set. The bedding, which features pintucking across the comforter, is available in twin, full/queen and king sizes. All of the Better Homes and Gardens comforter sets include a comforter and sham(s). The king set's shams are slightly larger than the queen- and full-size set's shams. The pintuck comforter set features a knife edge for crisp style. Available in multiple colors, the solid color plays against the raised pattern to create a stylish and subtle addition to the style of any bedroom. The Better Homes and Gardens 3-Piece Bedding Comforter Mini Set is machine washable.",
+            "image": "images/3b9c8b3c-1f55-482c-85d8-73a4c31f4a0d_1.c438e51597246efbe2264de8679f78a7.jpeg",
+            "price": 44.96
+        },
+        {
+            "sku": "00002",
+            "product_name": "Oakwood Microfiber Recliner, Multiple Colors",
+            "description": "Incorporate style and comfort into your home with the Oakwood Microfiber Recliner available in Multiple Colors. It's ideal for placement in a cozy living room seating group, a bedroom, rec room or den. This attractive oak recliner has a sturdy frame covered with an easy-to-maintain, soft-to-the-touch, microfiber fabric. It has thick padding and wide arms. This piece gives you a suitable place for relaxation extending backward with the simple side lever. It offers a contemporary feel that fits your body and features close proximity to wall recline for added enjoyment. The included full-size ottoman provides lasting support for your legs and tired feet, allowing you to extend, helping you to relax. Place it in front of your flat panel TV or along the side your bed, kick back and unwind from the day's events. This elegant Oakwood Microfiber Recliner with Multiple Color options available is sure to complement your decor.",
+            "image": "images/003b30b7-7503-4922-a990-2c2b3904a492_1.7376364c7e904e0f77475e811b50bd1b.jpeg",
+            "price": 159.00
+        },
+        {
+            "sku": "00003",
+            "product_name": "Metropolitan 5-Piece Dining Set, Multiple Colors",
+            "description": "Classic, yet modern design Material: Rubberwood, Micro fiber Fabric, Foam Metropolitan dining Requires assembly, see video below in the Take an interactive tour sectionAssembly time is approximately 1hr 30min for 5-piece set; it ships in 1 carton, carton weight: 102 lbs Available finishes: white, black and espresso",
+            "image": "images/c774e3a4-6f74-4f5e-b517-321a0a9d1f22_1.01a933687e66fff771f1bfe64bb739dc.jpeg",
+            "price": 300.00
+        },
+        {
+            "sku": "00004",
+            "product_name": "Buchannan Microfiber Sofa, Multiple Colors",
+            "description": "Add comfort to your home with the Buchannan Microfiber Sofa. Use it in a family or living area or anywhere you need a plush option for seating. Its soft microfiber upholstery, high density foam cushioning and padded arms offer support and an ideal spot for relaxation. This living room sofa is available in multiple colors so that you can choose the one that's right for your space. Pair it with the coordinating loveseat to create a complete conversation group (sold separately).",
+            "image": "images/327c47d7-4e7c-4a34-b60b-275c87f12086_1.f4322d66f26f96ef980a42be89104b66.jpeg",
+            "price": 219.00
+        },
+        {
+            "sku": "00005",
+            "product_name": "Dyson Ball Multifloor Bagless Canister Vacuum, 205779-01",
+            "description": "Engineered for high dust removal, no other vacuum expels cleaner air. Designed to clean across all floor types. The only vacuum with turbine head control at the handle — no bending down. Also features hygienic bin emptying. Just push the button to release the dirt. Its whole-machine HEPA filtration traps allergens and bacteria inside the machine. Its ball technology allows easy steering into difficult places.",
+            "image": "images/716a2dce-ef0a-49d9-8739-bfe2d3399be0_1.e67178c8e0db9d65bb96ca04237f27e1.jpeg",
+            "price": 299.00
+        }
+    ]
+}
+
